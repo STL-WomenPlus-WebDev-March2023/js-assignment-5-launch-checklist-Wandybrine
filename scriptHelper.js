@@ -54,10 +54,10 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         alert("Fuel Level and Cargo Level must be numbers!!!");
         return false;
     }
-
+     
     document.getElementById("pilotStatus").innerHTML=`Pilot ${pilot} Ready`;    
     document.getElementById("copilotStatus").innerHTML=`Co-pilot ${copilot} Ready`;
-
+    
     //If fuel level less than 10,000 change faultyItems to visible with an updated fuel status "there is not enough fuel for the journey"
     //h2 launchStatus, should also change to "Shuttle not ready for launch" and the color should change to red. 
     //If cargo mass more than 10,000, change list to visible with cargo status stating "there is too much mass for the shuttle to take off." 
@@ -68,8 +68,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let fuelStatus = document.getElementById("fuelStatus");
     let cargoStatus = document.getElementById("cargoStatus");
 
-    if (fuelLevel < 10000 || cargoLevel > 10000) {
-        faultyItems.style.visibility="visible";       
+    if (fuelLevel < 10000 || cargoLevel > 10000) {    
+        faultyItems.style.visibility="visible";  
         launchStatus.innerHTML="Shuttle not ready for launch.";
         launchStatus.style.color="red";        
     } 
@@ -82,6 +82,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         fuelStatus.innerHTML="There is not enough fuel for the journey." ; 
     }
     else {
+        faultyItems.style.visibility="visible";
         fuelStatus.innerHTML="Fuel level high enough for launch." ;
     }
 
@@ -89,6 +90,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         cargoStatus.innerHTML="There is too much mass for the shuttle to take off.";      
     }
     else {
+        faultyItems.style.visibility="visible";
         cargoStatus.innerHTML="Cargo mass low enough for launch.";
     }
 
